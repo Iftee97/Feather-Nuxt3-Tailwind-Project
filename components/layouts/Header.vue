@@ -2,7 +2,7 @@
   <header class="relative z-10 w-full flex-shrink-0">
     <div class="absolute -inset-0.5 rotate-180 opacity-30 blur-lg bg-conic-gradient" style="filter: blur(16px)"></div>
 
-    <div class="relative flex h-18 items-center border-b border-gray-200 bg-white/90 px-4 backdrop-blur-lg sm:px-6" style="backdrop-filter: blur(16px)">
+    <div class="relative flex h-18 items-center border-b border-gray-200 bg-white/90 px-4 py-4 backdrop-blur-lg sm:px-6" style="backdrop-filter: blur(16px)">
       <div class="flex w-full items-center justify-between">
         <button class="-m-2 inline-flex items-center justify-center rounded-lg bg-transparent p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -66,3 +66,10 @@
     </div>
   </header>
 </template>
+
+
+<style>
+.bg-conic-gradient {
+  background: linear-gradient(90deg, #44ff9a -0.55%, #44b0ff 22.86%, #8b44ff 48.36%, #ff6644 73.33%, #ebff70 99.34%);
+}
+</style>
