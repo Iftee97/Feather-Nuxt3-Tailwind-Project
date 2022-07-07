@@ -1,8 +1,5 @@
 <template>
   <header class="relative z-10 w-full flex-shrink-0">
-    <!-- {{ store }} -->
-    {{ $store.state.showHiddenSidebar }}
-
     <div class="absolute -inset-0.5 rotate-180 opacity-30 blur-lg bg-conic-gradient" style="filter: blur(16px)"></div>
 
     <div class="relative flex h-18 items-center border-b border-gray-200 bg-white/90 px-4 py-4 backdrop-blur-lg sm:px-6" style="backdrop-filter: blur(16px)">
@@ -94,13 +91,9 @@
 
 <script>
 import { ref, computed } from 'vue';
-// import { useStore } from 'vuex';
 
 export default {
   setup() {
-    const store = useStore();
-    const showHiddenSidebar = computed(() => store.state.showHiddenSidebar);
-
     const openDropdown = ref(false);
 
     function toggleDropdown() {
@@ -110,13 +103,7 @@ export default {
     return {
       openDropdown,
       toggleDropdown,
-      showHiddenSidebar,
     };
-  },
-
-  mounted() {
-    // console.log(showHiddenSidebar.value);
-    console.log(this.store);
   },
 };
 </script>
