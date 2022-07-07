@@ -50,7 +50,7 @@
           </div>
 
           <div class="relative">
-            <button aria-controls="dropdown-button" aria-expanded="false" type="button" class="inline-flex items-center justify-center rounded-lg border border-transparent bg-gray-100 px-4 py-2 text-base font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2">
+            <button @click="toggleDropdown" aria-controls="dropdown-button" aria-expanded="false" type="button" class="inline-flex items-center justify-center rounded-lg border border-transparent bg-gray-100 px-4 py-2 text-base font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2">
               <span class="sr-only">Open dropdown menu</span>
               <svg class="-ml-1 h-5 w-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.25C6.06294 1.25 1.25 6.06294 1.25 12C1.25 17.9371 6.06294 22.75 12 22.75C17.9371 22.75 22.75 17.9371 22.75 12C22.75 6.06294 17.9371 1.25 12 1.25ZM7 16.3333C7 14.4924 8.49238 13 10.3333 13H13.6667C15.5076 13 17 14.4924 17 16.3333C17 17.2538 16.2538 18 15.3333 18H8.66667C7.74619 18 7 17.2538 7 16.3333ZM12 11C13.6569 11 15 9.65685 15 8C15 6.34315 13.6569 5 12 5C10.3431 5 9 6.34315 9 8C9 9.65685 10.3431 11 12 11Z"></path>
@@ -61,7 +61,7 @@
               </svg>
             </button>
 
-            <div id="dropdown-button" class="absolute right-0 mt-3 w-48 divide-y divide-gray-100 rounded-lg border border-gray-100 bg-white shadow-xl">
+            <div v-if="openDropdown" id="dropdown-button" class="absolute right-0 mt-3 w-48 divide-y divide-gray-100 rounded-lg border border-gray-100 bg-white shadow-xl">
               <div class="px-4 py-3" role="none">
                 <p class="text-sm font-medium text-gray-500" role="none">Signed in as</p>
                 <p class="truncate text-sm font-semibold text-gray-900" role="none">example@email.com</p>
@@ -83,6 +83,29 @@
   </header>
 </template>
 
+<script>
+import { ref } from 'vue';
+
+export default {
+  setup() {
+    const openDropdown = ref(false);
+
+    function toggleDropdown() {
+      openDropdown.value = !openDropdown.value;
+      // console.log('asdaasda');
+    }
+
+    return {
+      openDropdown,
+      toggleDropdown,
+    };
+  },
+
+  mounted() {
+    console.log('Hello');
+  },
+};
+</script>
 
 <style>
 .bg-conic-gradient {
