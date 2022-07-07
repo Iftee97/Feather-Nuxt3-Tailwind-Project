@@ -4,7 +4,7 @@
 
     <div class="relative flex h-18 items-center border-b border-gray-200 bg-white/90 px-4 py-4 backdrop-blur-lg sm:px-6" style="backdrop-filter: blur(16px)">
       <div class="flex w-full items-center justify-between">
-        <button class="-m-2 inline-flex items-center justify-center rounded-lg bg-transparent p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 lg:hidden">
+        <button id="hamburger-btn" class="-m-2 inline-flex items-center justify-center rounded-lg bg-transparent p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
@@ -18,7 +18,13 @@
         </div>
 
         <div class="mr-4 lg:hidden">
-          <!-- SOMETHING BAT SHIT CRAZY GOES ON IN HERE -->
+          <span class="relative inline-block">
+            <!-- SOMETHING BAT SHIT CRAZY GOES ON IN HERE -->
+
+            <strong class="z-1 relative font-bold">
+              <button type="button" class="font-semibold">Premium User</button>
+            </strong>
+          </span>
         </div>
 
         <div class="relative flex lg:hidden">
@@ -85,6 +91,7 @@
 
 <script>
 import { ref } from 'vue';
+import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
   setup() {
@@ -92,7 +99,6 @@ export default {
 
     function toggleDropdown() {
       openDropdown.value = !openDropdown.value;
-      // console.log('asdaasda');
     }
 
     return {
