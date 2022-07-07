@@ -126,9 +126,13 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from 'vuex';
+import { ref, computed } from 'vue';
+import { useStore } from 'vuex';
 
 export default {
-  setup() {},
+  setup() {
+    const store = useStore();
+    const showHiddenSidebar = computed(() => store.state.showHiddenSidebar);
+  },
 };
 </script>

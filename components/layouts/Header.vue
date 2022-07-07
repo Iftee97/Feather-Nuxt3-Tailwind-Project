@@ -1,5 +1,8 @@
 <template>
   <header class="relative z-10 w-full flex-shrink-0">
+    <!-- {{ store }} -->
+    {{ $store.state.showHiddenSidebar }}
+
     <div class="absolute -inset-0.5 rotate-180 opacity-30 blur-lg bg-conic-gradient" style="filter: blur(16px)"></div>
 
     <div class="relative flex h-18 items-center border-b border-gray-200 bg-white/90 px-4 py-4 backdrop-blur-lg sm:px-6" style="backdrop-filter: blur(16px)">
@@ -90,11 +93,14 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import { mapState, mapGetters, mapActions } from 'vuex';
+import { ref, computed } from 'vue';
+// import { useStore } from 'vuex';
 
 export default {
   setup() {
+    const store = useStore();
+    const showHiddenSidebar = computed(() => store.state.showHiddenSidebar);
+
     const openDropdown = ref(false);
 
     function toggleDropdown() {
@@ -104,16 +110,18 @@ export default {
     return {
       openDropdown,
       toggleDropdown,
+      showHiddenSidebar,
     };
   },
 
   mounted() {
-    console.log('Hello');
+    // console.log(showHiddenSidebar.value);
+    console.log(this.store);
   },
 };
 </script>
 
-<style>
+<style scoped>
 .bg-conic-gradient {
   background: linear-gradient(90deg, #44ff9a -0.55%, #44b0ff 22.86%, #8b44ff 48.36%, #ff6644 73.33%, #ebff70 99.34%);
 }
