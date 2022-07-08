@@ -12,22 +12,20 @@
       </div>
 
       <nav class="space-y-1">
-        <SidebarNav1 />
+        <SidebarNavs />
       </nav>
     </div>
   </nav>
 </template>
 
 <script>
-import SidebarNav1 from '~~/components/layouts/SidebarNavs.vue';
-import SidebarNav2 from '@/components/layouts/SidebarNav2.vue';
+import SidebarNavs from '@/components/layouts/SidebarNavs.vue';
 
 export default {
   name: 'Sidebar',
 
   components: {
-    SidebarNav1,
-    SidebarNav2,
+    SidebarNavs,
   },
 };
 </script>

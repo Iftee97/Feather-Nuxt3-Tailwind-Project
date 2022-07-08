@@ -35,7 +35,7 @@
         </div>
 
         <nav class="space-y-1 mt-6" aria-label="Sidebar">
-          <SidebarNav1 />
+          <SidebarNavs />
         </nav>
       </div>
 
@@ -54,8 +54,7 @@
 <script>
 import { useStore } from '@/stores/pinia_store';
 
-import SidebarNav1 from '~~/components/layouts/SidebarNavs.vue';
-import SidebarNav2 from '@/components/layouts/SidebarNav2.vue';
+import SidebarNavs from '@/components/layouts/SidebarNavs.vue';
 
 export default {
   name: 'HiddenSidebar',
@@ -63,8 +62,7 @@ export default {
   props: ['toggleValue'],
 
   components: {
-    SidebarNav1,
-    SidebarNav2,
+    SidebarNavs,
   },
 
   setup() {
