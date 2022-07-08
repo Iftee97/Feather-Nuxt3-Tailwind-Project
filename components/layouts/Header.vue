@@ -19,7 +19,7 @@
 
         <div class="mr-4 lg:hidden">
           <span class="relative inline-block">
-            <!-- SOMETHING BAT SHIT CRAZY GOES ON IN HERE -->
+            <!-- SOMETHING CRAZY GOES ON IN HERE -->
 
             <strong class="z-1 relative font-bold">
               <button type="button" class="font-semibold">Premium User</button>
@@ -94,6 +94,8 @@ import { ref } from 'vue';
 import { useStore } from '@/stores/pinia_store';
 
 export default {
+  name: 'Header',
+
   setup() {
     const openDropdown = ref(false);
 
