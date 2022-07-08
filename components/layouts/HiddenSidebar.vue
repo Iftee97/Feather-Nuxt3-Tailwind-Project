@@ -1,22 +1,20 @@
 <template>
   <div style="position: fixed; z-index: 9999; top: 16px; left: 16px; right: 16px; bottom: 16px; pointer-events: none"></div>
 
-  <!-- UNCOMMENT THIS BY THE END: the classes here changes when the hamburger menu is clicked -->
-  <!-- <div class="pointer-events-none fixed inset-0 z-20 bg-gray-500 bg-opacity-75 transition-opacity ease-in-out pointer-events-none opacity-0 duration-300" aria-hidden="true"></div> -->
+  <div class="pointer-events-none fixed inset-0 z-20 bg-gray-500 bg-opacity-75 transition-opacity ease-in-out" :class="[toggleValue ? 'pointer-events-auto opacity-100 duration-500' : 'pointer-events-none opacity-0 duration-300']" aria-hidden="true"></div>
 
-  <!-- the classes here changes when the hamburger menu is clicked -->
-  <aside class="fixed inset-0 z-40 h-screen w-full max-w-xs transform bg-white transition-all duration-500 ease-in-out sm:duration-700 lg:hidden -translate-x-full opacity-0">
+  <aside class="fixed inset-0 z-40 h-screen w-full max-w-xs transform bg-white transition-all duration-500 ease-in-out sm:duration-700 lg:hidden" :class="[toggleValue ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0']">
     <div class="flex h-full flex-col divide-y divide-gray-200">
       <div class="flex-shrink-0 px-4 sm:px-6">
         <div class="flex h-[72px] items-center justify-between">
           <div class="flex flex-shrink-0">
-            <a href="/" title="Feather" class="inline-flex items-center rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-8">
+            <nuxt-link to="/" title="Feather" class="inline-flex items-center rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-8">
               <img class="h-9 w-auto" src="https://feather.so/build/_assets/logo-dark-NENIW3C5.svg" alt />
               <span class="ml-1 text-2xl font-bold tracking-tight text-gray-900">feather</span>
-            </a>
+            </nuxt-link>
           </div>
 
-          <button class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          <button @click="toggle" id="close-btn" class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
             <span class="sr-only">Close panel</span>
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
@@ -35,13 +33,13 @@
         </div>
 
         <nav class="space-y-1 mt-6" aria-label="Sidebar">
-          <a href="#" class="group flex items-center rounded-lg px-3 py-2 text-base transition-all duration-200 bg-gray-200 font-semibold text-gray-900">
+          <nuxt-link to="/" class="group flex items-center rounded-lg px-3 py-2 text-base transition-all duration-200 bg-gray-200 font-semibold text-gray-900">
             <svg class="mr-3 -ml-1 h-6 w-6 flex-shrink-0 text-gray-900" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path opacity="0.12" d="M2 9H22V15.6C22 17.8402 22 18.9603 21.564 19.816C21.1805 20.5686 20.5686 21.1805 19.816 21.564C18.9603 22 17.8402 22 15.6 22H8.4C6.15979 22 5.03969 22 4.18404 21.564C3.43139 21.1805 2.81947 20.5686 2.43597 19.816C2 18.9603 2 17.8402 2 15.6V9Z"></path>
               <path fill-rule="evenodd" clip-rule="evenodd" d="M9.96644 1.25H10H14H14.0336H14.0336C15.4053 1.25 16.4807 1.24999 17.3451 1.32061C18.2252 1.39252 18.9523 1.54138 19.6104 1.87671C20.6924 2.42799 21.572 3.30762 22.1233 4.38955C22.4586 5.04769 22.6075 5.7748 22.6794 6.65494C22.7317 7.29492 22.7452 8.05063 22.7488 8.95665C22.7496 8.971 22.75 8.98545 22.75 9C22.75 9.01273 22.7497 9.02538 22.7491 9.03795C22.75 9.33146 22.75 9.64053 22.75 9.96632V9.96637V9.96642V10V14V14.0336V14.0336V14.0337C22.75 15.4053 22.75 16.4807 22.6794 17.3451C22.6075 18.2252 22.4586 18.9523 22.1233 19.6104C21.572 20.6924 20.6924 21.572 19.6104 22.1233C18.9523 22.4586 18.2252 22.6075 17.3451 22.6794C16.4807 22.75 15.4053 22.75 14.0337 22.75H14.0336H14.0336H14H10H9.96642H9.96637H9.96441C9.63932 22.75 9.33088 22.75 9.03795 22.7491C9.02538 22.7497 9.01273 22.75 9 22.75C8.98545 22.75 8.971 22.7496 8.95665 22.7488C8.05063 22.7452 7.29492 22.7317 6.65494 22.6794C5.7748 22.6075 5.04769 22.4586 4.38955 22.1233C3.30762 21.572 2.42799 20.6924 1.87671 19.6104C1.54138 18.9523 1.39252 18.2252 1.32061 17.3451C1.24999 16.4807 1.25 15.4053 1.25 14.0336V14.0336V14V10V9.96644V9.96642C1.25 9.6406 1.25 9.33149 1.25094 9.03795C1.25032 9.02538 1.25 9.01273 1.25 9C1.25 8.98545 1.25041 8.971 1.25123 8.95665C1.25475 8.05063 1.26832 7.29492 1.32061 6.65494C1.39252 5.7748 1.54138 5.04769 1.87671 4.38955C2.42799 3.30762 3.30762 2.42799 4.38955 1.87671C5.04769 1.54138 5.7748 1.39252 6.65494 1.32061C7.51928 1.24999 8.59471 1.25 9.96642 1.25H9.96644ZM2.75002 9.75C2.75 9.83193 2.75 9.91525 2.75 10V14C2.75 15.4125 2.75058 16.4268 2.81563 17.2229C2.87996 18.0103 3.00359 18.518 3.21322 18.9295C3.62068 19.7291 4.27085 20.3793 5.07054 20.7868C5.48197 20.9964 5.9897 21.12 6.77708 21.1844C7.19815 21.2188 7.68025 21.2351 8.25 21.2429L8.25 9.75H2.75002ZM9.75 9.75L9.75 21.25L10 21.25H14C15.4125 21.25 16.4268 21.2494 17.2229 21.1844C18.0103 21.12 18.518 20.9964 18.9295 20.7868C19.7291 20.3793 20.3793 19.7291 20.7868 18.9295C20.9964 18.518 21.12 18.0103 21.1844 17.2229C21.2494 16.4268 21.25 15.4125 21.25 14V10C21.25 9.91525 21.25 9.83193 21.25 9.75H9.75ZM21.2429 8.25H9H2.75707C2.76486 7.68025 2.78123 7.19815 2.81563 6.77708C2.87996 5.9897 3.00359 5.48197 3.21322 5.07054C3.62068 4.27085 4.27085 3.62068 5.07054 3.21322C5.48197 3.00359 5.9897 2.87996 6.77708 2.81563C7.57322 2.75058 8.58749 2.75 10 2.75H14C15.4125 2.75 16.4268 2.75058 17.2229 2.81563C18.0103 2.87996 18.518 3.00359 18.9295 3.21322C19.7291 3.62068 20.3793 4.27085 20.7868 5.07054C20.9964 5.48197 21.12 5.9897 21.1844 6.77708C21.2188 7.19816 21.2351 7.68025 21.2429 8.25Z"></path>
             </svg>
             <span class="truncate">Dashboard</span>
-          </a>
+          </nuxt-link>
 
           <a href="#" class="group flex items-center rounded-lg px-3 py-2 text-base transition-all duration-200 font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900">
             <svg class="mr-3 -ml-1 h-6 w-6 flex-shrink-0 text-gray-500 group-hover:text-gray-900" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -126,4 +124,24 @@
 </template>
 
 <script>
+import { useStore } from '@/stores/pinia_store';
+
+export default {
+  name: 'HiddenSidebar',
+
+  props: ['toggleValue'],
+
+  setup(props) {
+    const store = useStore();
+
+    const toggle = () => {
+      store.toggleHiddenSidebar();
+      // console.log('from HiddenSidebar Component toggle() function:', store.showHiddenSidebar);
+    };
+
+    return {
+      toggle,
+    };
+  },
+};
 </script>

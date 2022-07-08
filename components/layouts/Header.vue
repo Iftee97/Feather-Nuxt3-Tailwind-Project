@@ -4,7 +4,7 @@
 
     <div class="relative flex h-18 items-center border-b border-gray-200 bg-white/90 px-4 py-4 backdrop-blur-lg sm:px-6" style="backdrop-filter: blur(16px)">
       <div class="flex w-full items-center justify-between">
-        <button id="hamburger-btn" class="-m-2 inline-flex items-center justify-center rounded-lg bg-transparent p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 lg:hidden">
+        <button @click="toggle" id="hamburger-btn" class="-m-2 inline-flex items-center justify-center rounded-lg bg-transparent p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
@@ -90,7 +90,8 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
+import { useStore } from '@/stores/pinia_store';
 
 export default {
   setup() {
@@ -100,13 +101,23 @@ export default {
       openDropdown.value = !openDropdown.value;
     }
 
+    const store = useStore();
+    console.log(store.showHiddenSidebar);
+
+    const toggle = () => {
+      store.toggleHiddenSidebar();
+      // console.log('from Header Component toggle() function:', store.showHiddenSidebar);
+    };
+
     return {
       openDropdown,
       toggleDropdown,
+      toggle,
     };
   },
 };
 </script>
+
 
 <style scoped>
 .bg-conic-gradient {
