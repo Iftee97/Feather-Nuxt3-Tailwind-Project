@@ -8,10 +8,10 @@
       <div class="flex-shrink-0 px-4 sm:px-6">
         <div class="flex h-[72px] items-center justify-between">
           <div class="flex flex-shrink-0">
-            <nuxt-link to="/" title="Feather" class="inline-flex items-center rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-8">
+            <a to="/" title="Feather" class="inline-flex items-center rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-8">
               <img class="h-9 w-auto" src="https://feather.so/build/_assets/logo-dark-NENIW3C5.svg" alt />
               <span class="ml-1 text-2xl font-bold tracking-tight text-gray-900">feather</span>
-            </nuxt-link>
+            </a>
           </div>
 
           <button @click="toggle" id="close-btn" class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
@@ -37,12 +37,6 @@
         <nav class="space-y-1 mt-6" aria-label="Sidebar">
           <SidebarNav1 />
         </nav>
-
-        <hr class="mt-6 border-gray-200" />
-
-        <nav class="mt-6 space-y-1" aria-label="Sidebar">
-          <SidebarNav2 />
-        </nav>
       </div>
 
       <div class="mt-auto flex">
@@ -60,7 +54,7 @@
 <script>
 import { useStore } from '@/stores/pinia_store';
 
-import SidebarNav1 from '@/components/layouts/SidebarNav1.vue';
+import SidebarNav1 from '~~/components/layouts/SidebarNavs.vue';
 import SidebarNav2 from '@/components/layouts/SidebarNav2.vue';
 
 export default {

@@ -14,18 +14,12 @@
       <nav class="space-y-1">
         <SidebarNav1 />
       </nav>
-
-      <hr class="mt-6 border-gray-200" />
-
-      <nav class="space-y-1">
-        <SidebarNav2 />
-      </nav>
     </div>
   </nav>
 </template>
 
 <script>
-import SidebarNav1 from '@/components/layouts/SidebarNav1.vue';
+import SidebarNav1 from '~~/components/layouts/SidebarNavs.vue';
 import SidebarNav2 from '@/components/layouts/SidebarNav2.vue';
 
 export default {

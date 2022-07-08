@@ -4,8 +4,6 @@
   <div class="flex h-full flex-col">
     <Header />
 
-    <!-- {{ store.showHiddenSidebar }} -->
-
     <div class="flex min-h-0 flex-1 overflow-hidden">
       <Sidebar />
       <slot />
