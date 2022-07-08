@@ -104,7 +104,7 @@ export default {
     }
 
     const store = useStore();
-    console.log(store.showHiddenSidebar);
+    // console.log(store.showHiddenSidebar);
 
     const toggle = () => {
       store.toggleHiddenSidebar();
